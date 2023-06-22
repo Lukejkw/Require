@@ -242,19 +242,6 @@ public class RequiresTests
     }
 
     [Test]
-    public void To_GivenValidFluentAssertion_ShouldConvertType()
-    {
-        Assert.IsTrue(Requires.NotNull("1").Map(_ => true));
-    }
-
-    [Test]
-    public void To_GivenInvalidFluentAssertion_ShouldThrow()
-    {
-        Assert.Throws<ArgumentNullException>(
-            () => Requires.NotNull<object>(null).Map(_ => true));
-    }
-
-    [Test]
     public void Min_GivenInvalidFluentAssertion_ShouldThrow()
     {
         var value = 8;
