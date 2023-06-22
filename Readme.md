@@ -7,9 +7,10 @@ A simple lightweight fluent assertion library.
 * Fully tested
 * Readable error messages
 * Correct argument exceptions based on assertion type
-* Fluent, chain statements for simple one-line assertions
+* Fluent api for simple "one-liner" assertions
 * Map to destination type assuming validity
 * Implicit assignment
+* Easily plug in your favourite validation or add custom validators
 
 ## Why?
 
@@ -20,8 +21,6 @@ Yes, other libraries exist. Sometimes you just need something stupidly simple to
 All the methods stem from the calling a static assertion on the `Requires` class. From there, simply chain further assertion calls. Every method has a corresponding `And{Method}` for chaining.
 
 If an assertion fails, an exception is thrown. If not, you can assume it's valid.
-
-Methods are included for `object` references, `string`s and `IEnumberable`s. Missing something? See contribution guidelines.
 
 ### Usage
 
@@ -35,11 +34,11 @@ string unwrappedValue = Requires.NotNull(new Example("NestedValue"))
     .Map(v => v.NestedProp);
     
 // Then will only be called if all assertions pass
-string unwrappedValue = Requires.NotNull(new Example("NestedValue"))
-    .Map(v => v.NestedProp);
+Requires.NotNull(new Example("NestedValue"))
+    .Then(v => { /* Ah! This feels like JavaScript! */ });
 ```
 
-> **Note:** There are many other assertion methods available
+> **Note:** There are many other assertion methods available for `object` references, `string`s, `int`s, `decimal`s,`IEnumberable`s etc. Missing something? See advanced usage and contribution guidelines.
 
 ### Advanced Usage
 
